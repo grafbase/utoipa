@@ -21,6 +21,10 @@ const SWAGGER_UI_DOWNLOAD_URL_DEFAULT: &str =
     "https://github.com/swagger-api/swagger-ui/archive/refs/tags/v5.11.0.zip";
 
 fn main() {
+    rustls::crypto::ring::default_provider()
+        .install_default()
+        .unwrap();
+
     let target_dir = env::var("OUT_DIR").unwrap();
     println!("OUT_DIR: {}", target_dir);
 
